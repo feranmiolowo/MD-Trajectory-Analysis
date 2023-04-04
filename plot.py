@@ -1,10 +1,5 @@
 ##!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 20 12:20:55 2020
 
-@author: gabrielbarbosa
-"""
 import numpy as np
 import matplotlib
 from matplotlib import pyplot as plt
@@ -85,7 +80,7 @@ plt.xlim((0,1.00))
 plt.xlabel(r"r(nm)",fontweight='bold')
 plt.ylabel(r"g(r)",fontweight='bold')
 plt.legend()
-plt.savefig('C_O.jpg')
+plt.savefig('plot.jpg')
 plt.clf()
 
 
