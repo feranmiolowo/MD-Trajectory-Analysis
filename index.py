@@ -2,24 +2,21 @@
 with open("mapping.ndx", "r") as f_in:
     input_data = f_in.readlines()
 
-# Remove leading/trailing whitespaces
 input_data = [line.strip() for line in input_data]
 
-# Write initial input data to output file
 with open("output.txt", "w") as f_out:
     for line in input_data:
         f_out.write(line + "\n")
 
-# Loop for 50 iterations
 for i in range(50):
     # Write updated data to temporary list
     updated_data = []
     for j, line in enumerate(input_data):
         if line.startswith("[ B"):
-            # Write set identifier
+           
             updated_data.append(f"[ B{j} ]")
         else:
-            # Split numbers and update each of them
+            
             numbers = line.split()
             updated_numbers = [str(int(n) + 242) for n in numbers]
             updated_data.append("\t".join(updated_numbers))
@@ -29,5 +26,4 @@ for i in range(50):
         for line in updated_data:
             f_out.write(line + "\n")
     
-    # Set input data to updated data
     input_data = updated_data
