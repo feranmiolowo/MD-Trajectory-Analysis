@@ -6,7 +6,7 @@ maxrows = 834
 # Create an array to accumulate the distances for each row
 dist_sum = np.zeros(maxrows)
 
-# Loop over the file indices from 1 to 50 with step size of 2
+# Loop over the file indices 
 for i in range(1, 50, 2):
 
     # Open the current and next files for reading
@@ -16,7 +16,7 @@ for i in range(1, 50, 2):
         dist1 = np.loadtxt(file1, usecols=(1, 2, 3), max_rows=maxrows)
         dist2 = np.loadtxt(file2, usecols=(1, 2, 3), max_rows=maxrows)
 
-        # Calculate the resultant distance
+        # Resultant distance
         dist = np.sqrt((dist1[:, 0] - dist2[:, 0])**2 +
                        (dist1[:, 1] - dist2[:, 1])**2 +
                        (dist1[:, 2] - dist2[:, 2])**2)
@@ -27,7 +27,6 @@ for i in range(1, 50, 2):
 # Calculate the average distance for each row
 avg_dist = dist_sum / 25
 
-# Write the average distances to the output file
 with open("result.xvg", "w") as outfile:
     for i in range(maxrows):
         outfile.write(f"{i+1}\t{avg_dist[i]:.6f}\n")
